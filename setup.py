@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name="matlab_connection",
     url="https://github.com/pckosek/matlab_connection",
-    version="0.0.1",
+    version="0.0.2",
     description="Package to streamline reading from and writing data to MATLAB from python",
     long_description=long_description,
     long_description_content_type="text/markdown",    
@@ -14,7 +14,13 @@ setuptools.setup(
     author_email="pckosek@fcps.edu",
     
     packages=setuptools.find_packages(),
-    include_package_data=False,
+    include_package_data=True,
+        # relative to the vfclust directory
+        package_data={
+            'matlab_functions':
+                 ['matlab_functions/animals_lemmas.dat',
+                 'matlab_functions/animals_names.dat'
+                 ],    
 
     # Dependent packages (distributions)
     classifiers=[

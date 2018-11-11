@@ -1,1 +1,1 @@
-name = "matlab_connection"
+from .matlab_connection import matlab_connection

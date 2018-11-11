@@ -5,7 +5,7 @@ import os
 # --------------------------------------------------- #
 # MATLAB CONNECTION CLASS
 # --------------------------------------------------- #
-class matlab_connection:
+class matlab_connection :
 
   def __init__(self, session_name):
     self.session_name = session_name
@@ -21,10 +21,10 @@ class matlab_connection:
     f = self.eng.cd(os.getcwd())
 
   def run_script(self, script_name) :
-    f = self.eng.from_python(script_name)
+    f = self.eng.script_from_python(script_name)
 
   def run_function(self, fcn_name, data) :
-    f = self.eng.from_python(script_name)
+    f = self.eng.function_from_python(script_name, data)
 
   def should_stop(self) :
     return self.eng.should_stop()
