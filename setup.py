@@ -15,12 +15,12 @@ setuptools.setup(
     
     packages=setuptools.find_packages(),
     include_package_data=True,
-        # relative to the vfclust directory
-        package_data={
-            'matlab_functions':
-                 ['matlab_functions/animals_lemmas.dat',
-                 'matlab_functions/animals_names.dat'
-                 ],    
+    package_data={
+        'matlab_functions':
+             ['matlab_functions/animals_lemmas.dat',
+             'matlab_functions/animals_names.dat'
+             ]
+    },
 
     # Dependent packages (distributions)
     classifiers=[
