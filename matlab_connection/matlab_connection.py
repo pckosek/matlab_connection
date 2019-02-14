@@ -11,11 +11,17 @@ class matlab_connection :
     self.session_name = session_name
     self.eng = matlab.engine.connect_matlab(session_name)
 
-  def put_var(self, var_name, values) :
-    self.eng.workspace[var_name] = matlab.double( np.asarray(values).tolist() ) 
+  def put_mat(self, var_name, values) :
+    if isinstance(values, list) :
+      self.eng.workspace[var_name] = matlab.double( np.asarray(values).tolist() ) 
+    else :
+      self.eng.workspace[var_name] = matlab.double( np.asarray([values]).tolist() ) 
 
-  def get_var(self, var_name) :
+  def get_mat(self, var_name) :
     return np.asarray( self.eng.workspace[var_name] )
+
+  def get_raw(self, var_name) :
+    return self.eng.workspace[var_name]
 
   def move_to_cwd(self) :
     f = self.eng.cd(os.getcwd())
